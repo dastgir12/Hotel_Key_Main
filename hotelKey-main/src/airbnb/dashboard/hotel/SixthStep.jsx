@@ -1,16 +1,13 @@
 import React from 'react';
 import axios from 'axios';
-import { apiHeader } from '../../../services/authHeader';
-
-const SixthStep = ({ props }) => {
+import { useCookies } from "react-cookie";
+const SixthStep = ({ props}) => {
   const { setCurrent, formValues } = props;
-
+  const [cookies] = useCookies(["user"]);
+  const token = cookies.user;
   const handleSubmit = () => {
-    axios.post('https://test.hotelkey.pk/api/add-hotel', formValues, 			{
-        headers: {
-            "api-key": "d6dcc1bf-1189-4713-acc4-bf1da722475d",
-            token: token,
-        },
+    axios.post('https://test.hotelkey.pk/api/add-hotel', formValues,{
+      headers: { Authorization: `Bearer ${token}` } 
     })
       .then((response) => {
         console.log(response.data);
@@ -19,7 +16,6 @@ const SixthStep = ({ props }) => {
         console.log(error);
       });
   };
-
   return (
     <div>
       <h2>Sixth Step</h2>
@@ -27,5 +23,4 @@ const SixthStep = ({ props }) => {
     </div>
   );
 };
-
 export default SixthStep;
