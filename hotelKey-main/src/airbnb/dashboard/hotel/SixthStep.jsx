@@ -5,9 +5,12 @@ const SixthStep = ({ props}) => {
   const { setCurrent, formValues } = props;
   const [cookies] = useCookies(["user"]);
   const token = cookies.user;
+  console.log(token);
   const handleSubmit = () => {
-    axios.post('https://test.hotelkey.pk/api/add-hotel', formValues,{
-      headers: { Authorization: `Bearer ${token}` } 
+    axios.post('https://test.hotelkey.pk/api/add-hotel', formValues, {
+      headers: { 
+        "api-key": "d6dcc1bf-1189-4713-acc4-bf1da722475d", 
+        Authorization: `Bearer ${token}` } 
     })
       .then((response) => {
         console.log(response.data);

@@ -15,6 +15,7 @@ import RoomAdd from "./airbnb/dashboard/Room/RoomAdd";
 import ResidenceList from "./airbnb/dashboard/residencelist/ResidenceList";
 import RoomList from "./airbnb/dashboard/Room/RoomList";
 import MobileBottomNavbar from "./airbnb/navbar/MobileBottomNavbar";
+import PaymentMethod from "./airbnb/dashboard/payment/PaymentMethod";
 function App() {
  return (
   <>
@@ -33,6 +34,7 @@ function App() {
      <Route path="/dashboard" element={<DashBoardPage />}>
       <Route index element={<DashBoard />} />
       <Route path="/dashboard/hoteladd" element={<HotelAdd />} />
+      <Route path="/dashboard/paymentmethod" element={<PaymentMethod />} />
       <Route path="/dashboard/roomadd" element={<RoomAdd />} />
       <Route path="/dashboard/hotellist" element={<HotelList />} />
       <Route path="/dashboard/roomlist" element={<RoomList />} />

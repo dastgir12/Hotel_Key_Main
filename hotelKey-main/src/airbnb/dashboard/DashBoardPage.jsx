@@ -6,6 +6,7 @@ import {
  UploadOutlined,
  FundViewOutlined,
  AlignLeftOutlined,
+ WalletOutlined
 } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
@@ -16,18 +17,20 @@ const DashBoardPage = () => {
  const showDrawer = () => {
   setOpen(true);
  };
+
  const onClose = () => {
   setOpen(false);
  };
 
  const handleMenuItem = (e) => {
   setOpen(false);
-  if (e.key === "/dashBoard") setpageTitle("DashBoard");
+  if (e.key === "/dashboard") setpageTitle("DashBoard");
   if (e.key === "hoteladd") setpageTitle("Hotel Add");
   if (e.key === "hotellist") setpageTitle("Hotel List");
   if (e.key === "addresidence") setpageTitle("Add Residence");
   if (e.key === "residencelist") setpageTitle("Residence List");
   if (e.key === "roomadd") setpageTitle("Room Add");
+  if (e.key === "paymentmethod") setpageTitle("Attach Payment Method");
   nav(e.key);
  };
  const adminItems = [
@@ -37,6 +40,12 @@ const DashBoardPage = () => {
    icon: <SettingOutlined />,
    style: { fontSize: "15px" },
   },
+  {
+    label: "Payment Method",
+    key: "paymentmethod",
+    icon: <WalletOutlined />,
+    style: { fontSize: "15px" },
+   },
   {
    label: "Hotel Add",
    key: "hoteladd",
@@ -61,6 +70,7 @@ const DashBoardPage = () => {
    icon: <SolutionOutlined />,
    style: { fontSize: "15px" },
   },
+
 
  ];
 
