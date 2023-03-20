@@ -29,6 +29,8 @@ const DashBoardPage = () => {
   if (e.key === "hotellist") setpageTitle("Hotel List");
   if (e.key === "addresidence") setpageTitle("Add Residence");
   if (e.key === "residencelist") setpageTitle("Residence List");
+  if (e.key === "booking") setpageTitle("Booking");
+  if (e.key === "approved") setpageTitle("ApprovedRequest");
   if (e.key === "roomadd") setpageTitle("Room Add");
   if (e.key === "paymentmethod") setpageTitle("Attach Payment Method");
   nav(e.key);
@@ -70,6 +72,18 @@ const DashBoardPage = () => {
    icon: <SolutionOutlined />,
    style: { fontSize: "15px" },
   },
+  {
+    label: "Booking",
+    key: "booking",
+    icon: <SolutionOutlined />,
+    style: { fontSize: "15px" },
+   },
+   {
+    label: "ApproveRequest",
+    key: "approved",
+    icon: <SolutionOutlined />,
+    style: { fontSize: "15px" },
+   },
 
 
  ];

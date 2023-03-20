@@ -1,4 +1,5 @@
 import axios from "axios";
+import { userAuth } from "./authHeader";
 
 export const getUserByToken = async (token) => {
 	try {
@@ -12,7 +13,9 @@ export const getUserByToken = async (token) => {
 			}
 		);
 		if (status === 200) {
+			console.log(userAuth.headers);
 			return data;
+			
 		}
 	} catch (e) {
 		console.log(e.response.data.message);

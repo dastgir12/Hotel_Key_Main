@@ -11,13 +11,16 @@ const SixthStep = ({ props}) => {
       headers: { 
         "api-key": "d6dcc1bf-1189-4713-acc4-bf1da722475d", 
         Authorization: `Bearer ${token}` } 
+        
     })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // console.log(headers);
+      // .then((response) => {
+      //   console.log(headers);
+      //   // console.log(response.data);
+      // })
+      // .catch((error) => {
+      //   console.log(error);
+      // });
   };
   return (
     <div>
