@@ -13,6 +13,7 @@ const Card = ({ text, icon }) => {
    <div className="p-4 grid place-items-center border-2 rounded-2xl w-36 text-center h-36">
     <img className="w-20" src={icon} alt="" />
    </div>
+   {clicked ? 1 : 0}
   </div>
  );
 };

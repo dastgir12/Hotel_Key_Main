@@ -3,7 +3,7 @@ import { Form, Input } from "antd";
 
 const FirstStep = ({ props }) => {
   const { current, setCurrent, setformValues, formValues } = props;
-
+console.log(formValues);
   const [form] = Form.useForm();
 
   const handleSubmit = (e) => {

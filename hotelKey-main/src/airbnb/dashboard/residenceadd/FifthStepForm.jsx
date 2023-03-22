@@ -85,7 +85,7 @@ const FifthStepForm = ({ props }) => {
       Back
      </button>
      <button
-      onClick={() => setCurrent(current + 1)}
+      onClick={handleNextClick}
       className="bg-green-400 w-24 px-3 py-2 rounded-2xl text-white"
       type="submit"
      >

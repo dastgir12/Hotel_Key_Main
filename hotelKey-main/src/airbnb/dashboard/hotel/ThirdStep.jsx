@@ -1,8 +1,5 @@
-
-
-//
-import React, { useState } from "react";
-import { DatePicker, Form, Input, Select, Button, InputNumber } from "antd";
+import React from "react";
+import { DatePicker, Form, InputNumber } from "antd";
 import { format } from "date-fns";
 const   ThirdStep = ({ props }) => {
  const { current, setCurrent, formValues, setformValues } = props;
@@ -14,6 +11,7 @@ const   ThirdStep = ({ props }) => {
    const dateRanges = e.date.map((d) => format(new Date(d.$d), "MM/dd/yyy")).join("-");
    console.log(e.price, dateRanges);
    setCurrent((prev) => prev + 1);
+   setformValues({...formValues , ...e})
   }
  };
  return (

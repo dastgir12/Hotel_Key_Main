@@ -13,7 +13,7 @@ const getBase64 = (file) =>
  });
 //
 const FourthStep = ({ props }) => {
- const { current, setCurrent } = props;
+ const { current, setCurrent , formVales , setformValues} = props;
  console.log(current);
 //here is the key of remainder
  const [previewOpen, setPreviewOpen] = useState(false);
@@ -46,12 +46,23 @@ const FourthStep = ({ props }) => {
   </div>
  );
  const handleNextClick = () => {
-  //   if (fileList.length === 0) {
-  //    message.error("Please Upload Images");
-  //    return;
-  //   }
-  setCurrent((prev) => prev + 1);
- };
+    if (fileList.length === 0) {
+      message.error("Please Upload Images");
+      return;
+    }
+  
+    const promises = fileList.map((file) => getBase64(file.originFileObj));
+    Promise.all(promises)
+      .then((base64DataArray) => {
+        const images = base64DataArray.map((base64Data) => ({ data: base64Data }));
+        setformValues({ ...formVales, images });
+        setCurrent((prev) => prev + 1);
+      })
+      .catch((error) => {
+        console.error(error);
+        message.error("Failed to convert images to base64 format");
+      });
+  };
  return (
   <>
    <div className="flex justify-center items-center flex-col">
@@ -82,7 +93,7 @@ const FourthStep = ({ props }) => {
     </div>
     <div className="flex gap-2 mt-7 justify-center items-center ">
      <button
-      onClick={() => setCurrent(current - 1)}
+      onClick={handleNextClick}
       className="bg-green-400 w-24 px-3 py-2 rounded-2xl text-white"
      >
       Back

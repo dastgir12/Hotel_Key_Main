@@ -38,5 +38,4 @@ const SixthStepForm = ({ props }) => {
   </>
  );
 };
-
 export default SixthStepForm;

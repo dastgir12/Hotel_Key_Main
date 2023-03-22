@@ -1,12 +1,6 @@
-
-
-
-import React, { useState } from "react";
-
 import Card from "./CardSelection/Crad";
 const FifthStep = ({ props }) => {
- const { current, setCurrent } = props;
- console.log(current);
+ const { current, setCurrent ,formValues , setformValues } = props;
 
  const cardsDetails = ["wifi", "camera", "parking", "doorLock"];
  const carddetails = cardsDetails.map((e) => ({
@@ -16,6 +10,11 @@ const FifthStep = ({ props }) => {
  const mappingCards = carddetails.map((e, i) => (
   <Card key={i} text={e.text} icon={e.icon} />
  ));
+
+ const handleSubmit = (e) => {
+    setCurrent((prev) => prev + 1);
+    setformValues({ ...formValues, ...e });
+  };
  return (
   <>
    <div className="flex gap-5 flex-col justify-center items-center">
@@ -29,7 +28,7 @@ const FifthStep = ({ props }) => {
       Back
      </button>
      <button
-      onClick={() => setCurrent(current + 1)}
+      onClick={handleSubmit}
       className="bg-green-400 w-24 px-3 py-2 rounded-2xl text-white"
       type="submit"
      >
